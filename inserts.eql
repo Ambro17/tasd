@@ -1,0 +1,58 @@
+delete scaloneta::Game;
+delete scaloneta::Player;
+delete scaloneta::Club;
+
+insert scaloneta::Game {
+    date:= <cal::local_datetime>"2022-11-22 07:00:00", 
+    stadium:= "Lusail", 
+    rival:= "Arabia Saudita"
+};
+
+insert scaloneta::Game {
+    date:= <cal::local_datetime>"2022-11-26 16:00:00", 
+    stadium:= "Lusail", 
+    rival:= "Mexico"
+};
+
+insert scaloneta::Game {
+    date:= <cal::local_datetime>"2022-11-30 16:00:00", 
+    stadium:= "Stadium 974", 
+    rival:= "Polonia"
+};
+
+insert scaloneta::Club {name:='PSG', country:='France'};
+
+insert scaloneta::Player {
+    name := 'Lionel',
+    surname:= 'Messi',
+    age := 34,
+    plays_at := (select scaloneta::Club filter .name = 'PSG'),
+};
+
+insert scaloneta::Player {
+    name := 'Angel',
+    surname:= 'Di Maria',
+    age := 34,
+    plays_at := (select scaloneta::Club filter .name = 'PSG'),
+};
+
+insert scaloneta::Player {
+    name := 'Rodrigo',
+    surname:= 'De Paul',
+    age := 27,
+    plays_at := (insert scaloneta::Club {name:='Atletico de Madrid', country:='Spain'})
+};
+
+insert scaloneta::Player {
+    name := 'Drawing',
+    surname:= 'Martinez',
+    age := 29,
+    plays_at := (insert scaloneta::Club {name:='Aston Villa', country:='England'})
+};
+
+update scaloneta::Game
+set {
+    players := {
+        (select scaloneta::Player)
+    }
+}
