@@ -11,10 +11,3 @@ select scaloneta::Game {
         } 
     } 
 };
-
-select scaloneta::Club { 
-    name, 
-    players: {
-        full_name
-    }
-};

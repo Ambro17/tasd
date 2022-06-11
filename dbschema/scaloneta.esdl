@@ -1,6 +1,6 @@
 module scaloneta {
   scalar type Stadiums extending enum<"Lusail", "Stadium 974">;
-  scalar type Teams extending enum<"Arabia Saudita", "Mexico", "Polonia">;
+  scalar type Teams extending enum<"Arabia Saudita", "Mexico", "Polonia", "Argentina">;
 
   type Game {
     required property date -> cal::local_datetime;
@@ -24,9 +24,9 @@ module scaloneta {
     required property name -> str {
         constraint exclusive;
     };
-    required property country -> str; # Could be enum too?
+    required property country -> str;
 
-    multi link players := Club.<plays_at[IS Player];
+    multi link players := Club.<plays_at[IS Player]; # Mencionar
   }
 
 };

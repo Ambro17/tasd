@@ -1,10 +1,11 @@
+# Use schema scaloneta
 delete scaloneta::Game;
 delete scaloneta::Player;
 delete scaloneta::Club;
 
 insert scaloneta::Game {
     date:= <cal::local_datetime>"2022-11-22 07:00:00", 
-    stadium:= "Lusail", 
+    stadium:= "Lusail",
     rival:= "Arabia Saudita"
 };
 
@@ -52,7 +53,5 @@ insert scaloneta::Player {
 
 update scaloneta::Game
 set {
-    players := {
-        (select scaloneta::Player)
-    }
+    players := {(select scaloneta::Player)}
 }
