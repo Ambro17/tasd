@@ -11,8 +11,9 @@ Install edgedb (1) and create and activate a python virtualenv (2)
 1. Install project dependencies `python3.10 -m pip install -r requirements.txt`
 2. Start edgedb database instance: `edgedb instance start tasd`
 3. Run the inserts `edgedb < inserts.eql`
-4. Run the selects `edgedb < selects.eql`
-5. Profit 🥂 💸
+4. Run the selects `edgedb < clubs.eql`
+5. Run the selects `edgedb < games.eql`
+6. Profit 🥂 💸
 
 ### Recommended setup
 IDE: Vscode with edgedb extension.

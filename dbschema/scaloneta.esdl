@@ -26,7 +26,7 @@ module scaloneta {
     };
     required property country -> str;
 
-    multi link players := Club.<plays_at[IS Player]; # Mencionar
+    multi link players := Club.<plays_at[IS Player]; # Relaciones inteligentes
   }
 
 };
